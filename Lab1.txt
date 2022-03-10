@@ -1,0 +1,5 @@
+Komenda docker start uruchamia istniejący kontener, zaś docker run tworzy nowy kontener i go uruchamia.
+Komenda docker start -a uruchamia kontener oraz wyświetla wyjściową zawartość jego obrazu. 
+
+Utowrzone kontenery: vibrant_mcclintock, bold_lederberg
+Komenda docker rm usuwa wybrany kontener, zaś docker container prune usuwa wszystkie kontenery, które nie są używane.
