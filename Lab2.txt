@@ -1,0 +1,45 @@
+Zad1
+docker run busybox echo "hello world! I'm busybox!"
+
+Zad2
+docker run -it busybox
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+
+docker logs eloquent_kirch
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+
+Zad3
+docker exec -it eloquent_kirch sh
+
+Zad4
+/ # cat > readme.txt
+My first file
+^C
+/ # exit
+
+docker run -it busybox
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+
+Nie, ponieważ polecenie run tworzy nowy kontener.
+
+Zad5
+docker exec -it youthful_taussig sh -c "echo 'Created from outside' >> createdFile.txt"
+
+docker exec -it youthful_taussig sh
+/ # ls
+bin              dev              home             root             tmp              var
+createdFile.txt  etc              proc             sys              usr
+/ # cat createdFile.txt
+Created from outside
+
+Zad6
+docker create --name my_container busybox echo 'Hello world from my container'
+c5f03c80adf2384a3a72bc59a019b913d944de0c5f13073eaf53e96aa6091e71
+docker start -a my_container
+Hello world from my container
+
