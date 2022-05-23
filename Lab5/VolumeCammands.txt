@@ -1,0 +1,11 @@
+Creates a new volume:
+docker volume create nazwa
+
+Lists all the volumes:
+docker volume ls
+
+Removes a volume:
+docker volume rm nazwa
+
+Returns information about a volume:
+docker volume inspect nazwa

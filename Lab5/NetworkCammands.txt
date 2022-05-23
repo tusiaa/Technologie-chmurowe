@@ -1,0 +1,17 @@
+Creates a new network:
+docker network create nazwa
+
+Lists all the networks:
+docker network ls
+
+Removes a network:
+docker network rm nazwa
+
+Returns information about a network:
+docker network inspect nazwa
+
+Connects a container to a network
+docker network connect NETWORK CONTAINER
+
+Disconnects a container from a network
+docker network disconnect NETWORK CONTAINER

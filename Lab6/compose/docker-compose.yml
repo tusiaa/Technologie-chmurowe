@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    environment:
+      - PGPORT=5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"

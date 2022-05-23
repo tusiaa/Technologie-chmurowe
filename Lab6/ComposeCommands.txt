@@ -1,0 +1,14 @@
+Builds, (re)creates, starts, and attaches to containers for a service:
+docker-compose up
+
+Builds, (re)creates, starts, and attaches to containers for a service in the background:
+docker-compose up -d
+
+Stops running containers without removing them:
+docker-compose stop
+
+Stops containers and removes containers, networks and volumes:
+docker-compose down --volumes
+
+Stops containers and removes containers, networks, volumes and images:
+docker-compose down -v -rmi local/all

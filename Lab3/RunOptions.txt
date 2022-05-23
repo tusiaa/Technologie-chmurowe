@@ -1,0 +1,7 @@
+docker run -it --rm -d -p 4200:80 --name web nginx
+
+-it : run container in interactive mode
+--rm : remove container after it exits
+-d : run container in background
+-p : port mapping
+--name : name container
