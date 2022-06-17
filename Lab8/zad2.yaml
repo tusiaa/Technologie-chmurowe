@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zad2-pod
+  labels:
+    app: zad2
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    command: 
+      - curl
+      - localhost:80
