@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: development
+data:
+  MONGO_URL: mongodb-service
+  MONGO_DB: books
+  BACKEND_URL: backend-service
+  REDIS_PORT: "6379"
+  REDIS_HOST: redisdb-service
