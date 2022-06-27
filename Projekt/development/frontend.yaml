@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: frontend
 
-  replicas: 2
+  replicas: 3
   template: 
     metadata:
       labels: 
@@ -19,15 +19,9 @@ spec:
     spec:
       containers:
       - name: books-frontend
-        image: tusiaa/books-app:release-1.1
+        image: tusiaa/books-app:release-2.0
         ports:
         - containerPort: 3000
-        env:
-        - name: BACKEND_URL
-          valueFrom:
-            configMapKeyRef:
-              name: backend-config
-              key: BACKEND_URL
 
 ---
 

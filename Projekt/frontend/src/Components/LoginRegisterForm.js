@@ -5,7 +5,6 @@ function LoginRegisterForm({setMainLogin, setLogin2}){
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const url = process.env.BACKEND_URL || 'http://localhost:3001';
 
     function onChangeLogin(event){
         setLogin(event.target.value)
@@ -16,7 +15,7 @@ function LoginRegisterForm({setMainLogin, setLogin2}){
     }
 
     function logIn (){
-        axios.get(`${url}/api/login/${login}`)
+        axios.get(`/api/login/${login}`)
         .then(async(response)=>{
             if (String(response.data) === password){
                 setMainLogin(login)
@@ -30,12 +29,12 @@ function LoginRegisterForm({setMainLogin, setLogin2}){
     }
 
     function register (){
-        axios.get(`${url}/api/login/${login}`)
+        axios.get(`/api/login/${login}`)
         .then(async(response)=>{
             if (response.data !== ""){
                 setError('Użytkownik o takiej nazwie już istnieje')
             } else {
-                axios.post(`${url}/api/login`, {
+                axios.post(`/api/login`, {
                     key: login,
                     value: password
                 })

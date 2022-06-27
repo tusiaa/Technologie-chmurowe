@@ -7,7 +7,6 @@ const LoginInfo = ({Login, setMainLogin, setLogin}) => {
     const [Password, setPassword] = useState('')
     const [NewPassword, setNewPassword] = useState('')
     const [error, setError] = useState('')
-    const url = process.env.BACKEND_URL || 'http://localhost:3001';
 
     function onChangePassword(event){ 
         setPassword(event.target.value)
@@ -30,11 +29,11 @@ const LoginInfo = ({Login, setMainLogin, setLogin}) => {
     }
 
     function save(){
-        axios.get(`${url}/api/login/${Login}`)
+        axios.get(`/api/login/${Login}`)
         .then(async(response)=>{
             console.log(response)
             if (String(response.data) === Password){
-                axios.put(`${url}/api/login/${Login}`, {
+                axios.put(`/api/login/${Login}`, {
                     value: NewPassword
                 })
                 .then(async(response)=>{
@@ -52,11 +51,11 @@ const LoginInfo = ({Login, setMainLogin, setLogin}) => {
     }
 
     function deleteAccount(){
-        axios.get(`${url}/api/login/${Login}`)
+        axios.get(`/api/login/${Login}`)
         .then(async(response)=>{
             console.log(response)
             if (String(response.data) === Password){
-                axios.delete(`${url}/api/login/${Login}`)
+                axios.delete(`/api/login/${Login}`)
                 .then(async(response)=>{
                     setMainLogin('')
                     setLogin(false)

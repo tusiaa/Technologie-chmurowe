@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: backend-config
-  namespace: development
+  namespace: production
 data:
   MONGO_URL: mongodb-service
   MONGO_DB: books

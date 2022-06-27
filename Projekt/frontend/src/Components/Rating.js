@@ -2,9 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 const Rating = ({Rating, Id}) => {
-    const url = process.env.BACKEND_URL || 'http://localhost:3001';
     const rate = (rating) => {
-        axios.post(`${url}/api/book/${Id}/rate`, {score: rating})
+        axios.post(`/api/book/${Id}/rate`, {score: rating})
         .then((response) => {
             alert("Dodano ocene!")
           }, (error) => {

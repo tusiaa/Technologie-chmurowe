@@ -16,18 +16,18 @@ function App() {
   const [szukaneksiazki, setSzukaneKsiazki] = useState([])
   const [isLoading, setIsLoading]=useState(true);
   const [isError, setIsError]=useState(false);
-  const url = process.env.BACKEND_URL || 'http://localhost:3001';
   useEffect(()=>{
-    fetch(`${url}/api/book`)
+    fetch(`/api/book`)
     .then(async(response)=>{
       const fetchedData = await response.json()
       setKsiazki(fetchedData)
-    }).catch(()=>{
+    }).catch((e)=>{
+      console.log(e);
       setIsError(true);
     }).finally(()=>{
       setIsLoading(false);
     });
-  }, [ksiazki, url]);
+  }, [ksiazki]);
 
   const [AddEdit, setAddEdit] = useState(false)
   const [Search, setSearch] = useState(false)
@@ -70,7 +70,7 @@ function App() {
   const onDelete = () => { 
     if (DoUsuniecia.length !== 0) {
       DoUsuniecia.map(a => {
-        axios.delete(`${url}/api/book/${a}`)
+        axios.delete(`/api/book/${a}`)
         .then((response) => {
             console.log("Usunieto ksiażkę o id: " + a);
           }, (error) => {
@@ -89,7 +89,7 @@ function App() {
     }
   }
   const onDelete2 = (id) => { 
-    axios.delete(`${url}/api/book/${id}`)
+    axios.delete(`/api/book/${id}`)
         .then((response) => {
             alert("Usunięto ksiązkę!")
             console.log("Usunieto ksiażkę o id: " + id);

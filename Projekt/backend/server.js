@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(cors({ origin: '*' }));
 
 // „Podłączamy” obsługę „endpointów”, które zdefiniowaliśmy dla kolekcji 'users' w katalogu routes/users.js
-app.use('/api/book', books);
-app.use('/api/login', login);
+app.use('/book', books);
+app.use('/login', login);
 
 require('dotenv').config();
 const dbConnData = {

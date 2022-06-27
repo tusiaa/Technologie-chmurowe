@@ -7,7 +7,6 @@ import axios from 'axios'
 const AddEditForm = ({ksiazki, setAdd}) => {
     const {id: Id} = useParams();
     const [Ksiazka, setKsiazka] = useState({})
-    const url = process.env.BACKEND_URL || 'http://localhost:3001';
 
     useEffect(() => {
         if(Id !== undefined){
@@ -59,7 +58,7 @@ const AddEditForm = ({ksiazki, setAdd}) => {
         validate,
         onSubmit: values => {
             if(Id !== undefined){
-                axios.put(`${url}/api/book/${Id}`, values)
+                axios.put(`/api/book/${Id}`, values)
                     .then((response) => {
                         alert("Zaktualizowano ksiązkę!")
                         console.log("Zaktualizowano ksiażkę o id: " + Id);
@@ -67,7 +66,7 @@ const AddEditForm = ({ksiazki, setAdd}) => {
                         console.log("Błąd!");
                     });
             } else {
-                axios.post(`${url}/api/book`, values)
+                axios.post(`/api/book`, values)
                     .then((response) => {
                         setAdd(false)
                         setAdd(true)
